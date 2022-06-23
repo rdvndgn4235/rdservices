@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6568efb2-0fec-4da7-b104-7d2a24a2271c" name="Changes" comment="" />
+    <list default="true" id="6568efb2-0fec-4da7-b104-7d2a24a2271c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/customer/src/main/java/com/rd/customer/FraudCheckResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer/src/main/java/com/rd/customer/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer/src/main/java/com/rd/customer/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fraud/src/main/java/com/rd/fraud/FraudController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fraud/src/main/java/com/rd/fraud/FraudController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fraud/target/classes/com/rd/fraud/FraudController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fraud/target/classes/com/rd/fraud/FraudController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +22,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -45,6 +53,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2AvvIUdIFvl72tAbEcT14zhFBTb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,6 +83,9 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/customer/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.rd.customer" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -112,8 +124,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CustomerApplication" />
         <item itemvalue="Spring Boot.FraudApplication" />
+        <item itemvalue="Spring Boot.CustomerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -127,7 +139,7 @@
       <updated>1655902794000</updated>
       <workItem from="1655902795321" duration="7611000" />
       <workItem from="1655965291258" duration="5008000" />
-      <workItem from="1655972308455" duration="6627000" />
+      <workItem from="1655972308455" duration="7925000" />
     </task>
     <servers />
   </component>
