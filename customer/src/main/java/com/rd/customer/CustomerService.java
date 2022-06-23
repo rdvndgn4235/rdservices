@@ -1,5 +1,9 @@
 package com.rd.customer;
 
+import com.rd.amqp.RabbitMQMessageProducer;
+import com.rd.clients.fraud.FraudCheckResponse;
+import com.rd.clients.fraud.FraudClient;
+import com.rd.clients.notification.NotificationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,7 +18,8 @@ import org.springframework.web.client.RestTemplate;
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
-    private final RestTemplate restTemplate;
+    private final FraudClient fraudClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public void register(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
@@ -25,17 +30,23 @@ public class CustomerService {
 
         // todo: check if mail valid
         // todo: check if mail not taken
-        // todo: check if fraudster
         Customer saved = customerRepository.saveAndFlush(customer);
-        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://localhost:8081/api/v1/fraud-check/{customerId}",
-                FraudCheckResponse.class,
-                saved.getId()
-        );
 
-        if (fraudCheckResponse.isFraudster()){
+        FraudCheckResponse fraudCheckResponse = fraudClient.isFraudster(saved.getId());
+
+        if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("fraudster");
         }
-        // todo: send notification
+        NotificationRequest notificationRequest = new NotificationRequest(
+                saved.getId(),
+                saved.getEmail(),
+                String.format("Hi %s, welcome to Rd code...", saved.getFirstName())
+        );
+
+        rabbitMQMessageProducer.publish(
+                notificationRequest,
+                "internal.exchange",
+                "internal.notification.routing-key"
+        );
     }
 }
